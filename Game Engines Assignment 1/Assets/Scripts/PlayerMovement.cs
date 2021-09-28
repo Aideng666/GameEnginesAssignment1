@@ -34,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
         {
             body.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             isGrounded = false;
+            GetComponent<Animator>().SetTrigger("Jump");
         }
 
         if (!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
