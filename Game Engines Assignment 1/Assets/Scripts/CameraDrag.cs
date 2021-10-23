@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// References used:
+// https://answers.unity.com/questions/827105/smooth-2d-camera-zoom.html
+// https://answers.unity.com/questions/827834/click-and-drag-camera.html
+
 public class CameraDrag : MonoBehaviour
 {
     [SerializeField] float panSpeed = 10f;
