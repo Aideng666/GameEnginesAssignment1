@@ -9,7 +9,7 @@ public class PlatformPlacer : MonoBehaviour
     public static void PlacePlatform(Vector3 position, Color color, Transform platform)
     {
         Transform newPlatform = Instantiate(platform, position, Quaternion.identity);
-        newPlatform.GetComponentInChildren<MeshRenderer>().material.color = color;
+        //newPlatform.GetComponentInChildren<MeshRenderer>().material.color = color;
         if (platforms == null)
         {
             platforms = new List<Transform>();
@@ -21,7 +21,7 @@ public class PlatformPlacer : MonoBehaviour
     {
         for (int i = 0; i < platforms.Count; i++)
         {
-            if (platforms[i].position == position && platforms[i].GetComponentInChildren<MeshRenderer>().material.color == color)
+            if (platforms[i].position == position)
             {
                 GameObject.Destroy(platforms[i].gameObject);
                 platforms.RemoveAt(i);
