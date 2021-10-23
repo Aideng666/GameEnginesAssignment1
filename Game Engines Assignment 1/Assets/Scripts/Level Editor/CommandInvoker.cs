@@ -39,24 +39,48 @@ public class CommandInvoker : MonoBehaviour
             counter++;
             Debug.Log("Command history length: " + commandHistory.Count);
         }
-        else
+        //else
+        //{
+        //    if (Input.GetKeyDown(KeyCode.Z))
+        //    {
+        //        if (counter > 0)
+        //        {
+        //            counter--;
+        //            commandHistory[counter].Undo();
+        //        }
+        //    }
+        //    else if (Input.GetKeyDown(KeyCode.R))
+        //    {
+        //        if (counter < commandHistory.Count)
+        //        {
+        //            commandHistory[counter].Execute();
+        //            counter++;
+        //        }
+        //    }
+        //}
+    }
+
+    private void OnEnable()
+    {
+        UndoCommand();
+        RedoCommand();
+    }
+
+    public void UndoCommand()
+    {
+        if (counter > 0)
         {
-            if (Input.GetKeyDown(KeyCode.Z))
-            {
-                if (counter > 0)
-                {
-                    counter--;
-                    commandHistory[counter].Undo();
-                }
-            }
-            else if (Input.GetKeyDown(KeyCode.R))
-            {
-                if (counter < commandHistory.Count)
-                {
-                    commandHistory[counter].Execute();
-                    counter++;
-                }
-            }
+            counter--;
+            commandHistory[counter].Undo();
         }
-    }   
+    }
+
+    public void RedoCommand()
+    {
+        if (counter < commandHistory.Count)
+        {
+            commandHistory[counter].Execute();
+            counter++;
+        }
+    }
 }
