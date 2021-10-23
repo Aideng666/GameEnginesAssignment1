@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ProductCreator1 : Creator
 {
-    public override IFactory FactoryMethod()
+    public override IFactory CreateProduct()
     {
         return new Product1();
     }

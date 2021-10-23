@@ -4,22 +4,30 @@ using UnityEngine;
 
 public class Client : MonoBehaviour
 {
-    public void Main()
+    public void ProductOne()
     {
-        Debug.Log("App: Launched with the ProductCreator1");
+        Debug.Log("Product 1");
         ClientCode(new ProductCreator1());
+    }
 
-        Debug.Log("App: Launched with the ProductCreator2");
+    public void ProductTwo()
+    {
+        Debug.Log("Product 2");
         ClientCode(new ProductCreator2());
     }
 
     public void ClientCode(Creator creator)
     {
-        Debug.Log("Client: I'm not aware of the creator's class, " + "but it still works.\n" + creator.SomeOperation());
+        Debug.Log(creator.SomeOperation());
     }
 
-    public void ButtonEvent()
+    public void ButtonEvent1()
     {
-        new Client().Main();
+        new Client().ProductOne();
+    }
+
+    public void ButtonEvent2()
+    {
+        new Client().ProductTwo();
     }
 }

@@ -6,6 +6,6 @@ public class Product1 : IFactory
 {
     public string Operation()
     {
-        return "{Result of Product1}";
+        return "Product 1 is a small platform";
     }
 }

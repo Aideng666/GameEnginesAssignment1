@@ -4,13 +4,13 @@ using UnityEngine;
 
 public abstract class Creator : MonoBehaviour
 { 
-    public abstract IFactory FactoryMethod();
+    public abstract IFactory CreateProduct();
 
     public string SomeOperation()
     {
-        var product = FactoryMethod();
+        var product = CreateProduct();
 
-        var result = "Creator: The same creator's code has just worked with " + product.Operation();
+        var result = product.Operation();
 
         return result;
     }
