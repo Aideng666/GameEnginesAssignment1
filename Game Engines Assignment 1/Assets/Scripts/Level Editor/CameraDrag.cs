@@ -29,8 +29,8 @@ public class CameraDrag : MonoBehaviour
        if (Input.GetMouseButton(1))
         {
             var newPosition = new Vector3();
-            newPosition.x = Input.GetAxis("Mouse X") * panSpeed * Time.deltaTime * 25f;
-            newPosition.y = Input.GetAxis("Mouse Y") * panSpeed * Time.deltaTime * 25f;
+            newPosition.x = Input.GetAxis("Mouse X") * panSpeed * Time.deltaTime * 30f;
+            newPosition.y = Input.GetAxis("Mouse Y") * panSpeed * Time.deltaTime * 30f;
 
             transform.Translate(-newPosition);
         }
@@ -38,7 +38,7 @@ public class CameraDrag : MonoBehaviour
         float scroll = Input.GetAxis("Mouse ScrollWheel");
         if (scroll != 0.0f)
         {
-            targetOrtho -= scroll * zoomSpeed * 5f;
+            targetOrtho -= scroll * zoomSpeed;
             targetOrtho = Mathf.Clamp(targetOrtho, minOrtho, maxOrtho);
         }
 
