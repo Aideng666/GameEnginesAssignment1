@@ -57,34 +57,6 @@ public class CommandInvoker : MonoBehaviour
                     counter++;
                 }
             }
-
-            //UndoPlatform();
-
-           // RedoPlatform();
         }
-    }
-
-    public void UndoPlatform()
-    {
-        //if (Input.GetKeyDown(KeyCode.Z))
-        //{
-            if (counter > 0)
-            {
-                counter--;
-                commandHistory[counter].Undo();
-            }
-        //}
-    }
-
-    public void RedoPlatform()
-    {
-        //if (Input.GetKeyDown(KeyCode.R))
-        //{
-            if (counter < commandHistory.Count)
-            {
-                commandHistory[counter].Execute();
-                counter++;
-            }
-       // }
     }
 }
