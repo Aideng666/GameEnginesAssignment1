@@ -6,10 +6,10 @@ public class PlatformPlacer : MonoBehaviour
 {
     static List<Transform> platforms;
 
-    public static void PlacePlatform(Vector3 position, Color color, Transform platform)
+    public static void PlacePlatform(Vector3 position, Transform platform)
     {
         Transform newPlatform = Instantiate(platform, position, Quaternion.identity);
-        //newPlatform.GetComponentInChildren<MeshRenderer>().material.color = color;
+
         if (platforms == null)
         {
             platforms = new List<Transform>();
@@ -17,7 +17,7 @@ public class PlatformPlacer : MonoBehaviour
         platforms.Add(newPlatform);
     }
 
-    public static void RemovePlatform(Vector3 position, Color color)
+    public static void RemovePlatform(Vector3 position)
     {
         for (int i = 0; i < platforms.Count; i++)
         {
@@ -28,5 +28,10 @@ public class PlatformPlacer : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public List<Transform> GetPlatformList()
+    {
+        return platforms;
     }
 }
