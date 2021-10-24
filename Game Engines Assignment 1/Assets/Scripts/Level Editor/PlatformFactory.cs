@@ -22,19 +22,46 @@ public class PlatformFactory : MonoBehaviour
         }
     }
 
-    public Platform CreatePlatformType(int type, Vector3 position, Transform platform)
+    public Platform CreatePlatformType(int type, Vector3 position, Transform platform, bool randomized = false)
     {
         if (type == 0)
         {
-            return new ShortPlatform(position, platform);
+            Platform newPlat = new ShortPlatform(position, platform);
+
+            newPlat.Platform.localScale = new Vector3(1.5f, 1, 1);
+            if (randomized)
+            {
+                newPlat.Platform.localScale = FindObjectOfType<RandomScalePlugin>().ApplyRandomScale(newPlat.Platform.localScale);
+            }
+
+
+            return newPlat;
         }
         else if (type == 1)
         {
-            return new RegularPlatform(position, platform);
+            Platform newPlat = new RegularPlatform(position, platform);
+
+            newPlat.Platform.localScale = new Vector3(3, 1, 1);
+
+            if (randomized)
+            {
+                newPlat.Platform.localScale = FindObjectOfType<RandomScalePlugin>().ApplyRandomScale(newPlat.Platform.localScale);
+            }
+
+            return newPlat;
         }
         else if (type == 2)
         {
-            return new LongPlatform(position, platform);
+            Platform newPlat = new LongPlatform(position, platform);
+
+            newPlat.Platform.localScale = new Vector3(4.5f, 1, 1);
+
+            if (randomized)
+            {
+                newPlat.Platform.localScale = FindObjectOfType<RandomScalePlugin>().ApplyRandomScale(newPlat.Platform.localScale);
+            }
+
+            return newPlat;
         }
         else
         {
