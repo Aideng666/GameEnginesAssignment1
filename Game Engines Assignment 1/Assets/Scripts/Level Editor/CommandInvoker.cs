@@ -37,32 +37,51 @@ public class CommandInvoker : MonoBehaviour
             counter++;
             Debug.Log("Platform history length: " + platformHistory.Count);
         }
-        else
+        //else
+        //{
+        //    if (Input.GetKeyDown(KeyCode.Z))
+        //    {
+        //        if (counter > 0)
+        //        {
+        //            counter--;
+        //            platformHistory[counter].Undo();
+        //        }
+        //    }
+        //    else if (Input.GetKeyDown(KeyCode.R))
+        //    {
+        //        if (counter < platformHistory.Count)
+        //        {
+        //            platformHistory[counter].Spawn();
+        //            counter++;
+        //        }
+        //    }
+        //}
+    }
+
+    private void OnEnable()
+    {
+        UndoCommand();
+        RedoCommand();
+    }
+
+    public void UndoCommand()
+    {
+        if (counter > 0)
         {
-            if (Input.GetKeyDown(KeyCode.Z))
-            {
-                if (counter > 0)
-                {
-                    counter--;
-                    platformHistory[counter].Undo();
-                }
-            }
-            else if (Input.GetKeyDown(KeyCode.R))
-            {
-                if (counter < platformHistory.Count)
-                {
-                    platformHistory[counter].Spawn();
-                    counter++;
-                }
-            }
+            counter--;
+            platformHistory[counter].Undo();
         }
     }
 
-    //private void OnEnable()
-    //{
-    //    UndoCommand();
-    //    RedoCommand();
-    //}
+    public void RedoCommand()
+    {
+        if (counter < platformHistory.Count)
+        {
+            platformHistory[counter].Spawn();
+            counter++;
+        }
+    }
+
 
     //public void UndoCommand()
     //{
