@@ -5,6 +5,7 @@ using UnityEngine;
 public class InputPlane : MonoBehaviour
 {
     public Transform platformPrefab;
+    public Transform grassPrefab;
     PlatformFactory factory;
     public static int currentPlatformType = 1;
 
@@ -45,8 +46,21 @@ public class InputPlane : MonoBehaviour
                 //ICommand command = new PlacePlatformCommand(mousePosition, platformPrefab);
                 //CommandInvoker.AddCommand(command);
 
-                Platform platCommand = factory.CreatePlatformType(currentPlatformType, mousePosition, platformPrefab, isRandomApplied);
-                CommandInvoker.AddCommand(platCommand);
+                if (currentPlatformType != 3)
+                {
+                    Platform platCommand = factory.CreatePlatformType(currentPlatformType, mousePosition, platformPrefab, isRandomApplied);
+                    CommandInvoker.AddCommand(platCommand);
+                }
+                else if (currentPlatformType == 3)
+                {
+                    Platform platCommand = factory.CreatePlatformType(currentPlatformType, mousePosition, grassPrefab, isRandomApplied);
+                    CommandInvoker.AddCommand(platCommand);
+                }
+
+                //Platform platCommand = factory.CreatePlatformType(currentPlatformType, mousePosition, platformPrefab, isRandomApplied);
+                //CommandInvoker.AddCommand(platCommand);
+
+               
             }
         }
     }

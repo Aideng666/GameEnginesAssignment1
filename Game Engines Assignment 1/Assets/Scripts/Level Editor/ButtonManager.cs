@@ -18,4 +18,9 @@ public class ButtonManager : MonoBehaviour
     {
         InputPlane.currentPlatformType = 2;
     }
+
+    public void GrassSelect()
+    {
+        InputPlane.currentPlatformType = 3;
+    }
 }

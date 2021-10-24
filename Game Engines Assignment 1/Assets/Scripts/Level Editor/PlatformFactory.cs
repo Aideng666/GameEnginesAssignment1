@@ -63,6 +63,12 @@ public class PlatformFactory : MonoBehaviour
 
             return newPlat;
         }
+        else if (type == 3)
+        {
+            Platform newPlat = new Grass(position, platform);
+
+            return newPlat;
+        }
         else
         {
             return null;
