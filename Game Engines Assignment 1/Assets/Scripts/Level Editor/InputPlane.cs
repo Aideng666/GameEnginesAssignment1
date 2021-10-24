@@ -7,32 +7,48 @@ public class InputPlane : MonoBehaviour
     Camera maincam;
     RaycastHit hitInfo;
     public Transform platformPrefab;
+    PlatformFactory factory;
+    int currentPlatformType = 0;
 
     // Start is called before the first frame update
     void Awake()
     {
         maincam = Camera.main;
+        factory = new PlatformFactory();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.Alpha0))
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-                if (GetComponent<Collider2D>().OverlapPoint(mousePosition))
-                {
-                    Color c = new Color(Random.Range(0.5f, 1f), Random.Range(0.5f, 1f), Random.Range(0.5f, 1f));
-                    //CubePlacer.PlaceCube(hitInfo.point, c, cubePrefab);
-
-                    ICommand command = new PlacePlatformCommand(mousePosition, c, platformPrefab);
-                    CommandInvoker.AddCommand(command);
-                }
-            }
+            Debug.Log("Type: 0");
+            currentPlatformType = 0;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            Debug.Log("Type: 1");
+            currentPlatformType = 1;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            Debug.Log("Type: 2");
+            currentPlatformType = 2;
         }
 
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+            if (GetComponent<Collider2D>().OverlapPoint(mousePosition))
+            {
+                //ICommand command = new PlacePlatformCommand(mousePosition, platformPrefab);
+                //CommandInvoker.AddCommand(command);
+
+                Platform platCommand = factory.CreatePlatformType(currentPlatformType, mousePosition, platformPrefab);
+                CommandInvoker.AddCommand(platCommand);
+            }
+        }
     }
 }
