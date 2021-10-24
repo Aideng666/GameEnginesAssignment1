@@ -35,7 +35,7 @@ public class CommandInvoker : MonoBehaviour
 
             platformHistory.Add(c);
             counter++;
-            Debug.Log("Platform history length: " + platformHistory.Count);
+            //Debug.Log("Platform history length: " + platformHistory.Count);
         }
         //else
         //{
@@ -81,4 +81,47 @@ public class CommandInvoker : MonoBehaviour
             counter++;
         }
     }
+
+    public List<Platform> GetHistory()
+    {
+        return platformHistory;
+    }
+
+    public void SetHistory(List<Platform> newHistory)
+    {
+        platformHistory = newHistory;
+    }
+
+
+    //public void UndoCommand()
+    //{
+    //    if (counter > 0)
+    //    {
+    //        if (Input.GetKeyDown(KeyCode.Z))
+    //        {
+    //            if (counter > 0)
+    //            {
+    //                counter--;
+    //                platformHistory[counter].Undo();
+    //            }
+    //        }
+    //        else if (Input.GetKeyDown(KeyCode.R))
+    //        {
+    //            if (counter < platformHistory.Count)
+    //            {
+    //                platformHistory[counter].Spawn();
+    //                counter++;
+    //            }
+    //        }
+    //    }
+    //}
+
+    //public void RedoCommand()
+    //{
+    //    if (counter < commandHistory.Count)
+    //    {
+    //        commandHistory[counter].Execute();
+    //        counter++;
+    //    }
+    //}
 }
