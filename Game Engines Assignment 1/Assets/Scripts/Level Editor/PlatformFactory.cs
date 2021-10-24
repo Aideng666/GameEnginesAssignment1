@@ -65,6 +65,15 @@ public class PlatformFactory : MonoBehaviour
         }
         else if (type == 3)
         {
+            Platform newPlat = new FinalPlatform(position, platform);
+
+            newPlat.Platform.localScale = new Vector3(14, 1, 1);
+            newPlat.Position = new Vector3(0, newPlat.Position.y, newPlat.Position.z);
+
+            return newPlat;
+        }
+        else if (type == 4)
+        {
             Platform newPlat = new Grass(position, platform);
 
             return newPlat;

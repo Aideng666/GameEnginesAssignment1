@@ -19,8 +19,13 @@ public class ButtonManager : MonoBehaviour
         InputPlane.currentPlatformType = 2;
     }
 
-    public void GrassSelect()
+    public void FinalPlatformSelect()
     {
         InputPlane.currentPlatformType = 3;
+    }
+
+    public void GrassSelect()
+    {
+        InputPlane.currentPlatformType = 4;
     }
 }
