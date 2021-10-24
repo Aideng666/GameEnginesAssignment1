@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Creator Class
+
 public abstract class Creator : MonoBehaviour
 { 
     public abstract IFactory CreateProduct();

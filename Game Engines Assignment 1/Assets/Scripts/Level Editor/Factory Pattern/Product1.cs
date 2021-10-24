@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Concrete Product
+
 public class Product1 : IFactory
 {
     public string Operation()

@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProductCreator2 : Creator
+//Concrete Creator
+
+public class ProductCreator1 : Creator
 {
     public override IFactory CreateProduct()
     {
-        return new Product2();
+        return new Product1();
     }
 }
