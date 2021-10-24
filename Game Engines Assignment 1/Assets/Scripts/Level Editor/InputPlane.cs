@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class InputPlane : MonoBehaviour
 {
+    Camera maincam;
+    RaycastHit hitInfo;
     public Transform platformPrefab;
     PlatformFactory factory;
     public static int currentPlatformType = 1;
 
-    bool isRandomApplied;
-
     // Start is called before the first frame update
     void Awake()
     {
+        maincam = Camera.main;
         factory = new PlatformFactory();
     }
 
@@ -45,14 +46,9 @@ public class InputPlane : MonoBehaviour
                 //ICommand command = new PlacePlatformCommand(mousePosition, platformPrefab);
                 //CommandInvoker.AddCommand(command);
 
-                Platform platCommand = factory.CreatePlatformType(currentPlatformType, mousePosition, platformPrefab, isRandomApplied);
+                Platform platCommand = factory.CreatePlatformType(currentPlatformType, mousePosition, platformPrefab);
                 CommandInvoker.AddCommand(platCommand);
             }
         }
-    }
-
-    public void ToggleRandomScale()
-    {
-        isRandomApplied = !isRandomApplied;
     }
 }
