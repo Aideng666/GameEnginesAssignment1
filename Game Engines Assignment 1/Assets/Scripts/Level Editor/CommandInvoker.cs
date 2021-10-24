@@ -35,7 +35,7 @@ public class CommandInvoker : MonoBehaviour
 
             platformHistory.Add(c);
             counter++;
-            Debug.Log("Platform history length: " + platformHistory.Count);
+            //Debug.Log("Platform history length: " + platformHistory.Count);
         }
         //else
         //{

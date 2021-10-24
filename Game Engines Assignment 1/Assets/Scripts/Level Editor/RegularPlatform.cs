@@ -5,31 +5,22 @@ using UnityEngine;
 public class RegularPlatform : Platform
 {
     public int Type => 0;
-    public Vector3 Position { get { return position; } set { this.Position = value; } }
-    public Transform Platform
-    {
-        get { return platform; }
-
-        set
-        {
-            this.Platform = value;
-        }
-    }
+    public Vector3 Position { get { return position; } set { position = value; } }
+    public Transform Platform { get; set; }
 
     Vector3 position;
-    Transform platform;
 
     public RegularPlatform(Vector3 position, Transform platform)
     {
         this.position = position;
-        this.platform = platform;
+        this.Platform = platform;
+
+        this.Position = position;
     }
 
     public void Spawn()
     {
-        platform.localScale = new Vector3(3, 1, 1);
-
-        PlatformPlacer.PlacePlatform(position, platform);
+        PlatformPlacer.PlacePlatform(position, Platform);
     }
 
     public void Undo()
