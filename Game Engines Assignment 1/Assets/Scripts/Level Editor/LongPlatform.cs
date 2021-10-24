@@ -5,6 +5,16 @@ using UnityEngine;
 public class LongPlatform : Platform
 {
     public int Type => 0;
+    public Vector3 Position { get { return position; } set { this.Position = value; } }
+    public Transform Platform
+    {
+        get { return platform; }
+
+        set
+        {
+            this.Platform = value;
+        }
+    }
 
     Vector3 position;
     Transform platform;

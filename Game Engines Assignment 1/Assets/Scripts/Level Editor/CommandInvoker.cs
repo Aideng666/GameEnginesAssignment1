@@ -82,6 +82,16 @@ public class CommandInvoker : MonoBehaviour
         }
     }
 
+    public List<Platform> GetHistory()
+    {
+        return platformHistory;
+    }
+
+    public void SetHistory(List<Platform> newHistory)
+    {
+        platformHistory = newHistory;
+    }
+
 
     //public void UndoCommand()
     //{
