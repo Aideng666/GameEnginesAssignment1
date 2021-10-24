@@ -8,7 +8,7 @@ public class InputPlane : MonoBehaviour
     RaycastHit hitInfo;
     public Transform platformPrefab;
     PlatformFactory factory;
-    int currentPlatformType = 0;
+    public static int currentPlatformType = 1;
 
     // Start is called before the first frame update
     void Awake()
