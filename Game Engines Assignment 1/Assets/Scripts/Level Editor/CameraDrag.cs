@@ -4,44 +4,57 @@ using UnityEngine;
 
 
 // References used:
-// https://answers.unity.com/questions/827105/smooth-2d-camera-zoom.html
+// https://www.youtube.com/watch?v=R6scxu1BHhs&t=789s
 // https://answers.unity.com/questions/827834/click-and-drag-camera.html
 
 public class CameraDrag : MonoBehaviour
 {
     [SerializeField] float panSpeed = 10f;
+    
+    [SerializeField] private Camera cam;
 
-    [SerializeField] float zoomSpeed = 10f;
-    [SerializeField] float targetOrtho;
-    [SerializeField] float smoothSpeed = 2.0f;
-    [SerializeField] float minOrtho = 1.0f;
-    [SerializeField] float maxOrtho = 20.0f;
-
-    void Start()
-    {
-        targetOrtho = Camera.main.orthographicSize;
-    }
+    [SerializeField] private float zoomStep, minCamSize, maxCamSize;
 
     // Update is called once per frame
     void Update()
     {
-        // Hold right mouse button to pan camera
-       if (Input.GetMouseButton(1))
+        PanCamera();
+
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+
+        if (scroll > 0.0f)
+        {
+            ZoomIn();
+        }
+        else if (scroll < 0.0f)
+        {
+            ZoomOut();
+        }
+    }
+
+    void PanCamera()
+    {
+        if (Input.GetMouseButton(1))
         {
             var newPosition = new Vector3();
-            newPosition.x = Input.GetAxis("Mouse X") * panSpeed * Time.deltaTime * 25f;
-            newPosition.y = Input.GetAxis("Mouse Y") * panSpeed * Time.deltaTime * 25f;
+            newPosition.x = Input.GetAxis("Mouse X") * panSpeed * Time.deltaTime * 30f;
+            newPosition.y = Input.GetAxis("Mouse Y") * panSpeed * Time.deltaTime * 30f;
 
             transform.Translate(-newPosition);
         }
+    }
 
-        float scroll = Input.GetAxis("Mouse ScrollWheel");
-        if (scroll != 0.0f)
-        {
-            targetOrtho -= scroll * zoomSpeed * 5f;
-            targetOrtho = Mathf.Clamp(targetOrtho, minOrtho, maxOrtho);
-        }
+    public void ZoomIn()
+    {
+        float newSize = cam.orthographicSize - zoomStep;
 
-        Camera.main.orthographicSize = Mathf.MoveTowards(Camera.main.orthographicSize, targetOrtho, smoothSpeed * Time.deltaTime);
+        cam.orthographicSize = Mathf.Clamp(newSize, minCamSize, maxCamSize);
+    }
+
+    public void ZoomOut()
+    {
+        float newSize = cam.orthographicSize + zoomStep;
+
+        cam.orthographicSize = Mathf.Clamp(newSize, minCamSize, maxCamSize);
     }
 }
