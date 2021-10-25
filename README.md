@@ -10,6 +10,9 @@ For this assignment, we decided on doing Option C. This level editor allows the 
 ### SCREENSHOTS:
 ![](images/screenshot.png)
 
+### UML:
+![](https://github.com/Aideng666/GameEnginesAssignment1/blob/Assignment2/images/A2%20UML.png)
+
 LINKS:
 
 Demo Video Link:
