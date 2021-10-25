@@ -10,16 +10,16 @@ For this assignment, we decided on doing Option C. This level editor allows the 
 ### SCREENSHOTS:
 ![](images/screenshot.png)
 
-### UML:
+### UML: Factory Design Pattern
 ![](https://github.com/Aideng666/GameEnginesAssignment1/blob/Assignment2/images/A2%20UML.png)
 
-LINKS:
+### Demo Video Link: https://youtu.be/PGvWq15WWA0
+#### Other Information:
+- Command Pattern: For the Undo/Redo using a queue and list to keep track of the platforms spawned. 
+- Factory Pattern: For providing variations of the platforms by chekcing for different types of the platforms and spawning them accordingly.
+- Observer Pattern: AudioManager class plays audio if an action event is invoked from another class. 
 
-Demo Video Link:
-
-[LINKHERE]
-
-Team:
+#### Team:
 - Aiden Gimpel - 100740094
 - Tyler Wong - 100750805
 
@@ -31,24 +31,24 @@ We got our textures from these sources:
 - PNGTree.com
 - Freesvg.org
 
-Background Music and Sound Effects:
+#### Background Music and Sound Effects:
 
 - https://www.youtube.com/watch?v=isGaq0fvCCI
 - https://www.youtube.com/watch?v=k1cx-JdyxbY
 - https://www.soundfishing.eu/
 
-We watched these videos for assistance:
+#### We watched these videos for assistance:
 
 - https://www.youtube.com/watch?v=FGVkio4bnPQ
 - https://www.youtube.com/watch?v=R6scxu1BHhs&t=659s
 
-We used these Webpages:
+#### We used these Webpages:
 
 - https://refactoring.guru/design-patterns/factory-method
 - https://answers.unity.com/questions/827834/click-and-drag-camera.html
 - https://answers.unity.com/questions/783279/46-ui-how-to-detect-mouse-over-on-button.html
 
-We used these previous assignments: 
+#### We used these previous assignments: 
 
 - Game Engine Assignment 1 (For the base project and assets)
 - Game Engine Midterm Quiz (For DLL Plugin)
