@@ -3,6 +3,8 @@ In this game you will attempt to climb up a tower of grass platforms by jumping 
 
 Be careful! The ground is very slippery and the walls are very bouncy so it is difficult to control your movements.
 
+For this assignment, we decided on doing Option C. This level editor allows the player to place a variety of platforms, grass and to change background music to one of two tracks you may like. The level editor also includes and undo and redo options just in case you misplace an object as well as a toggle to randomize the scale of each of the platforms giving the game more challenge!
+
 LINKS:
 
 Demo Video Link:
@@ -20,6 +22,12 @@ We got our textures from these sources:
 OpenGameArt.org
 PNGTree.com
 Freesvg.org
+
+Background Music and Sound Effects:
+
+https://www.youtube.com/watch?v=isGaq0fvCCI
+https://www.youtube.com/watch?v=k1cx-JdyxbY
+https://www.soundfishing.eu/
 
 We watched these videos for assistance:
 
