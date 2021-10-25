@@ -23,11 +23,11 @@ public class InputPlane : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
         if (Input.GetMouseButtonDown(0))
         {
             clicked?.Invoke();
-
-            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
             if (GetComponent<Collider2D>().OverlapPoint(mousePosition))
             {
@@ -42,7 +42,7 @@ public class InputPlane : MonoBehaviour
                     CommandInvoker.AddCommand(platCommand);
                 }
             }
-        }
+        }     
     }
 
     public void ToggleRandomScale()
