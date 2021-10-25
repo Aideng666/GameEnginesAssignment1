@@ -40,25 +40,6 @@ public class CommandInvoker : MonoBehaviour
             counter++;
             //Debug.Log("Platform history length: " + platformHistory.Count);
         }
-        //else
-        //{
-        //    if (Input.GetKeyDown(KeyCode.Z))
-        //    {
-        //        if (counter > 0)
-        //        {
-        //            counter--;
-        //            platformHistory[counter].Undo();
-        //        }
-        //    }
-        //    else if (Input.GetKeyDown(KeyCode.R))
-        //    {
-        //        if (counter < platformHistory.Count)
-        //        {
-        //            platformHistory[counter].Spawn();
-        //            counter++;
-        //        }
-        //    }
-        //}
     }
 
     private void OnEnable()
