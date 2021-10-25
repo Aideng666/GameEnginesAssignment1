@@ -18,6 +18,7 @@ For this assignment, we decided on doing Option C. This level editor allows the 
 - Command Pattern: For the Undo/Redo using a queue and list to keep track of the platforms spawned. 
 - Factory Pattern: For providing variations of the platforms by chekcing for different types of the platforms and spawning them accordingly.
 - Observer Pattern: AudioManager class plays audio if an action event is invoked from another class. 
+- DLL Plugin: For random scale of the platforms that you can spawn.
 
 #### Team:
 - Aiden Gimpel - 100740094
