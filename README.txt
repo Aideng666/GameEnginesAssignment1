@@ -6,7 +6,6 @@ Be careful! The ground is very slippery and the walls are very bouncy so it is d
 For this assignment, we decided on doing Option C. This level editor allows the player to place a variety of platforms, grass and to change background music to one of two tracks you may like. The level editor also includes and undo and redo options just in case you misplace an object as well as a toggle to randomize the scale of each of the platforms giving the game more challenge!
 
 SCREENSHOTS:
-![alt text](https://github.com/[Aideng666]/[GameEnginesAssignment1]/blob/[Assignment2]/screenshot.png?raw=true)
 
 LINKS:
 
