@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class CommandInvoker : MonoBehaviour
 {
+    public static event Action clicked;
+
     static Queue<Platform> platformCommandBuffer;
 
     static List<Platform> platformHistory;
@@ -37,25 +40,6 @@ public class CommandInvoker : MonoBehaviour
             counter++;
             //Debug.Log("Platform history length: " + platformHistory.Count);
         }
-        //else
-        //{
-        //    if (Input.GetKeyDown(KeyCode.Z))
-        //    {
-        //        if (counter > 0)
-        //        {
-        //            counter--;
-        //            platformHistory[counter].Undo();
-        //        }
-        //    }
-        //    else if (Input.GetKeyDown(KeyCode.R))
-        //    {
-        //        if (counter < platformHistory.Count)
-        //        {
-        //            platformHistory[counter].Spawn();
-        //            counter++;
-        //        }
-        //    }
-        //}
     }
 
     private void OnEnable()
@@ -70,7 +54,10 @@ public class CommandInvoker : MonoBehaviour
         {
             counter--;
             platformHistory[counter].Undo();
+            clicked?.Invoke();
         }
+
+        
     }
 
     public void RedoCommand()
@@ -79,7 +66,10 @@ public class CommandInvoker : MonoBehaviour
         {
             platformHistory[counter].Spawn();
             counter++;
+            clicked?.Invoke();
         }
+
+        
     }
 
     public List<Platform> GetHistory()
@@ -91,37 +81,4 @@ public class CommandInvoker : MonoBehaviour
     {
         platformHistory = newHistory;
     }
-
-
-    //public void UndoCommand()
-    //{
-    //    if (counter > 0)
-    //    {
-    //        if (Input.GetKeyDown(KeyCode.Z))
-    //        {
-    //            if (counter > 0)
-    //            {
-    //                counter--;
-    //                platformHistory[counter].Undo();
-    //            }
-    //        }
-    //        else if (Input.GetKeyDown(KeyCode.R))
-    //        {
-    //            if (counter < platformHistory.Count)
-    //            {
-    //                platformHistory[counter].Spawn();
-    //                counter++;
-    //            }
-    //        }
-    //    }
-    //}
-
-    //public void RedoCommand()
-    //{
-    //    if (counter < commandHistory.Count)
-    //    {
-    //        commandHistory[counter].Execute();
-    //        counter++;
-    //    }
-    //}
 }
