@@ -16,6 +16,7 @@ public class AudioPlayer : MonoBehaviour
         ButtonManager.clicked += PlayAudio;
         CommandInvoker.clicked += PlayAudio;
         InputPlane.clicked += PlayAudio;
+
     }
 
     private void OnDisable()

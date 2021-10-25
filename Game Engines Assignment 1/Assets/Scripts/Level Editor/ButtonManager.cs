@@ -11,7 +11,7 @@ public class ButtonManager : MonoBehaviour
     {
         InputPlane.currentPlatformType = 0;
 
-        clicked?.Invoke();
+        clicked?.Invoke(); 
     }
 
     public void RegularPlatformSelect()
