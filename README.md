@@ -33,20 +33,20 @@ We got our textures from these sources:
 
 Background Music and Sound Effects:
 
-https://www.youtube.com/watch?v=isGaq0fvCCI
-https://www.youtube.com/watch?v=k1cx-JdyxbY
-https://www.soundfishing.eu/
+- https://www.youtube.com/watch?v=isGaq0fvCCI
+- https://www.youtube.com/watch?v=k1cx-JdyxbY
+- https://www.soundfishing.eu/
 
 We watched these videos for assistance:
 
-https://www.youtube.com/watch?v=FGVkio4bnPQ
-https://www.youtube.com/watch?v=R6scxu1BHhs&t=659s
+- https://www.youtube.com/watch?v=FGVkio4bnPQ
+- https://www.youtube.com/watch?v=R6scxu1BHhs&t=659s
 
 We used these Webpages:
 
-https://refactoring.guru/design-patterns/factory-method
-https://answers.unity.com/questions/827834/click-and-drag-camera.html
-https://answers.unity.com/questions/783279/46-ui-how-to-detect-mouse-over-on-button.html
+- https://refactoring.guru/design-patterns/factory-method
+- https://answers.unity.com/questions/827834/click-and-drag-camera.html
+- https://answers.unity.com/questions/783279/46-ui-how-to-detect-mouse-over-on-button.html
 
 We used these previous assignments: 
 
