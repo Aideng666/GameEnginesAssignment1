@@ -7,6 +7,7 @@ public interface Platform
     public abstract int Type { get; }
     public abstract Vector3 Position { get; set; }
     public abstract Transform Platform { get; set; }
+    public abstract Transform Parent { get; set; }
 
     void Spawn();
 

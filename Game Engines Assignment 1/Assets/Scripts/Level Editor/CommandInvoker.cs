@@ -14,6 +14,8 @@ public class CommandInvoker : MonoBehaviour
 
     private bool dirty_;
 
+    private bool isLevelSaved;
+
     private void Awake()
     {
         platformCommandBuffer = new Queue<Platform>();
@@ -57,15 +59,17 @@ public class CommandInvoker : MonoBehaviour
 
             print("Save Complete: File Path is Assets/levelsave.txt");
 
+            isLevelSaved = true;
+
             dirty_ = false;
         }
+    }
 
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            dirty_ = true;
+    public void SetDirty()
+    {
+        dirty_ = true;
 
-            print("Saving...");
-        }
+        print("Saving...");
     }
 
     private void OnEnable()
@@ -82,8 +86,6 @@ public class CommandInvoker : MonoBehaviour
             platformHistory[counter].Undo();
             clicked?.Invoke();
         }
-
-        
     }
 
     public void RedoCommand()
@@ -93,9 +95,7 @@ public class CommandInvoker : MonoBehaviour
             platformHistory[counter].Spawn();
             counter++;
             clicked?.Invoke();
-        }
-
-        
+        } 
     }
 
     public List<Platform> GetHistory()
@@ -106,5 +106,10 @@ public class CommandInvoker : MonoBehaviour
     public void SetHistory(List<Platform> newHistory)
     {
         platformHistory = newHistory;
+    }
+
+    public bool GetLevelSaved()
+    {
+        return isLevelSaved;
     }
 }

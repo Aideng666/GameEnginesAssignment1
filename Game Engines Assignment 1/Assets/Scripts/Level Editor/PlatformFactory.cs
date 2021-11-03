@@ -22,11 +22,11 @@ public class PlatformFactory : MonoBehaviour
         }
     }
 
-    public Platform CreatePlatformType(int type, Vector3 position, Transform platform, bool randomized = false)
+    public Platform CreatePlatformType(int type, Vector3 position, Transform platform, Transform parent, bool randomized = false)
     {
         if (type == 0)
         {
-            Platform newPlat = new ShortPlatform(position, platform);
+            Platform newPlat = new ShortPlatform(position, platform, parent);
 
             newPlat.Platform.localScale = new Vector3(1.5f, 1, 1);
             if (randomized)
@@ -39,7 +39,7 @@ public class PlatformFactory : MonoBehaviour
         }
         else if (type == 1)
         {
-            Platform newPlat = new RegularPlatform(position, platform);
+            Platform newPlat = new RegularPlatform(position, platform, parent);
 
             newPlat.Platform.localScale = new Vector3(3, 1, 1);
 
@@ -52,7 +52,7 @@ public class PlatformFactory : MonoBehaviour
         }
         else if (type == 2)
         {
-            Platform newPlat = new LongPlatform(position, platform);
+            Platform newPlat = new LongPlatform(position, platform, parent);
 
             newPlat.Platform.localScale = new Vector3(4.5f, 1, 1);
 
@@ -65,7 +65,7 @@ public class PlatformFactory : MonoBehaviour
         }
         else if (type == 3)
         {
-            Platform newPlat = new FinalPlatform(position, platform);
+            Platform newPlat = new FinalPlatform(position, platform, parent);
 
             newPlat.Platform.localScale = new Vector3(14, 1, 1);
             newPlat.Position = new Vector3(0, newPlat.Position.y, newPlat.Position.z);
@@ -74,7 +74,7 @@ public class PlatformFactory : MonoBehaviour
         }
         else if (type == 4)
         {
-            Platform newPlat = new Grass(position, platform);
+            Platform newPlat = new Grass(position, platform, parent);
 
             return newPlat;
         }

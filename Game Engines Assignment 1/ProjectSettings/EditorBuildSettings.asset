@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Assignment 2 - Level Creator.unity
     guid: 613a89531f9016844bd6a50920ba95c4
+  - enabled: 1
+    path: Assets/Scenes/Loaded Level.unity
+    guid: 3e9d406c2aa6c214a856b1997ced3376
   m_configObjects: {}

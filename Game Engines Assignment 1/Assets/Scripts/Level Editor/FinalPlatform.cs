@@ -4,23 +4,26 @@ using UnityEngine;
 
 public class FinalPlatform : Platform
 {
-    public int Type => 0;
+    public int Type => 3;
     public Vector3 Position { get { return position; } set { position = value; } }
     public Transform Platform { get; set; }
+    public Transform Parent { get; set; }
 
     Vector3 position;
 
-    public FinalPlatform(Vector3 position, Transform platform)
+    public FinalPlatform(Vector3 position, Transform platform, Transform parent = null)
     {
         this.position = position;
         this.Platform = platform;
 
         this.Position = position;
+
+        this.Parent = parent;
     }
 
     public void Spawn()
     {
-        PlatformPlacer.PlacePlatform(position, Platform);
+        PlatformPlacer.PlacePlatform(position, Platform, Parent);
     }
 
     public void Undo()
@@ -29,7 +32,6 @@ public class FinalPlatform : Platform
     }
     public override string ToString()
     {
-        return "FinalPlatform:" + position.x + ":" + position.y + ":" + position.z;
+        return "FinalPlatform:" + position.x + ":" + position.y + ":" + position.z + ":" + Platform.localScale.x + ":" + Platform.localScale.y + ":" + Platform.localScale.z;
     }
-
 }

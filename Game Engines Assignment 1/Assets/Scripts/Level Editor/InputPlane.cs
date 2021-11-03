@@ -9,6 +9,7 @@ public class InputPlane : MonoBehaviour
 
     public Transform platformPrefab;
     public Transform grassPrefab;
+    public Transform plaformParent;
     PlatformFactory factory;
     public static int currentPlatformType = 1;
 
@@ -36,12 +37,12 @@ public class InputPlane : MonoBehaviour
                 {
                     if (currentPlatformType != 4)
                     {
-                        Platform platCommand = factory.CreatePlatformType(currentPlatformType, mousePosition, platformPrefab, isRandomApplied);
+                        Platform platCommand = factory.CreatePlatformType(currentPlatformType, mousePosition, platformPrefab, plaformParent, isRandomApplied);
                         CommandInvoker.AddCommand(platCommand);
                     }
                     else if (currentPlatformType == 4)
                     {
-                        Platform platCommand = factory.CreatePlatformType(currentPlatformType, mousePosition, grassPrefab, isRandomApplied);
+                        Platform platCommand = factory.CreatePlatformType(currentPlatformType, mousePosition, grassPrefab, plaformParent, isRandomApplied);
                         CommandInvoker.AddCommand(platCommand);
                     }
                 }

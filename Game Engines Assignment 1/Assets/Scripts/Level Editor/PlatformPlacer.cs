@@ -6,9 +6,9 @@ public class PlatformPlacer : MonoBehaviour
 {
     static List<Transform> platforms;
 
-    public static void PlacePlatform(Vector3 position, Transform platform)
+    public static void PlacePlatform(Vector3 position, Transform platform, Transform parent)
     {
-        Transform newPlatform = Instantiate(platform, position, Quaternion.identity);
+        Transform newPlatform = Instantiate(platform, position, Quaternion.identity, parent);
 
         if (platforms == null)
         {
