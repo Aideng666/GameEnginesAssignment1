@@ -12,10 +12,14 @@ public class CommandInvoker : MonoBehaviour
     static List<Platform> platformHistory;
     static int counter;
 
+    private bool dirty_;
+
     private void Awake()
     {
         platformCommandBuffer = new Queue<Platform>();
         platformHistory = new List<Platform>();
+
+        dirty_ = false;
     }
 
     public static void AddCommand(Platform command)
@@ -38,7 +42,29 @@ public class CommandInvoker : MonoBehaviour
 
             platformHistory.Add(c);
             counter++;
-            //Debug.Log("Platform history length: " + platformHistory.Count);
+        }
+
+        if (dirty_)
+        {
+            List<string> lines = new List<string>();
+
+            foreach (Platform c in platformHistory)
+            {
+                lines.Add(c.ToString());
+            }
+
+            System.IO.File.WriteAllLines(Application.dataPath + "/levelsave.txt", lines);
+
+            print("Save Complete: File Path is Assets/levelsave.txt");
+
+            dirty_ = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            dirty_ = true;
+
+            print("Saving...");
         }
     }
 

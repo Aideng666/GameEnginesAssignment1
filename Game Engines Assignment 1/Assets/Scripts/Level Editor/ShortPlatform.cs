@@ -27,4 +27,9 @@ public class ShortPlatform : Platform
     {
         PlatformPlacer.RemovePlatform(position);
     }
+
+    public override string ToString()
+    {
+        return "ShortPlatform:" + position.x + ":" + position.y + ":" + position.z;
+    }
 }

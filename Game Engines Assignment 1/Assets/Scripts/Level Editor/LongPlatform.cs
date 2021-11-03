@@ -27,4 +27,9 @@ public class LongPlatform : Platform
     {
         PlatformPlacer.RemovePlatform(position);
     }
+
+    public override string ToString()
+    {
+        return "LongPlatform:" + position.x + ":" + position.y + ":" + position.z;
+    }
 }

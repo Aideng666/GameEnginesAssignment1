@@ -1,0 +1,7 @@
+RegularPlatform:-4.364695:0.435679:0
+RegularPlatform:2.091416:0.435679:0
+ShortPlatform:-0.8486906:2.984223:0
+LongPlatform:-1.454898:-2.234223:0
+LongPlatform:4.576867:-2.173544:0
+FinalPlatform:0:6.518446:0
+FinalPlatform:0:1.548786:0

@@ -27,4 +27,9 @@ public class FinalPlatform : Platform
     {
         PlatformPlacer.RemovePlatform(position);
     }
+    public override string ToString()
+    {
+        return "FinalPlatform:" + position.x + ":" + position.y + ":" + position.z;
+    }
+
 }
