@@ -1,11 +1,14 @@
-# Game Engines A2
+# Game Engines A3
 
 ### DESCRIPTION:	
 In this game you will attempt to climb up a tower of grass platforms by jumping up.
 
 Be careful! The ground is very slippery and the walls are very bouncy so it is difficult to control your movements.
 
-For this assignment, we decided on doing Option C. This level editor allows the player to place a variety of platforms, grass and to change background music to one of two tracks you may like. The level editor also includes and undo and redo options just in case you misplace an object as well as a toggle to randomize the scale of each of the platforms giving the game more challenge!
+There is a level creator which allows you to place different sized platforms and grass decoration around the level. You can save the level when completed and you
+can load into the level to play it yourself! Simply click the Save Level button to save, and the Load Level Button to try it out!
+
+After completing your own level you will have an option to play again or to create another new level.
 
 ### SCREENSHOTS:
 ![](images/screenshot.png)
@@ -13,16 +16,13 @@ For this assignment, we decided on doing Option C. This level editor allows the 
 ### UML: Factory Design Pattern
 ![](https://github.com/Aideng666/GameEnginesAssignment1/blob/Assignment2/images/A2%20UML.png)
 
-### Demo Video Link: https://youtu.be/PGvWq15WWA0
-#### Other Information:
-- Command Pattern: For the Undo/Redo using a queue and list to keep track of the platforms spawned. 
-- Factory Pattern: For providing variations of the platforms by chekcing for different types of the platforms and spawning them accordingly.
-- Observer Pattern: AudioManager class plays audio if an action event is invoked from another class. 
-- DLL Plugin: For random scale of the platforms that you can spawn.
+### Demo Video Link: 
 
-#### Team:
-- Aiden Gimpel - 100740094
-- Tyler Wong - 100750805
+#### Other Information:
+- Dirty Flag: For detecting changes to the level creator to allow for saving and loading of a created level
+- Level Loader: Loads a scene from a text file that the level creator wrote onto.
+- Tutorial: When playing a level, a tutorial will show you the controls and the goal of the game
+- Main Menu: First scene when the game launches, allows you to choose to play the example level or to create your own
 
 
 ### REFERENCES:
@@ -38,7 +38,7 @@ We got our textures from these sources:
 - https://www.youtube.com/watch?v=k1cx-JdyxbY
 - https://www.soundfishing.eu/
 
-#### We watched these videos for assistance:
+#### I watched these videos for assistance:
 
 - https://www.youtube.com/watch?v=FGVkio4bnPQ
 - https://www.youtube.com/watch?v=R6scxu1BHhs&t=659s
@@ -49,9 +49,14 @@ We got our textures from these sources:
 - https://answers.unity.com/questions/827834/click-and-drag-camera.html
 - https://answers.unity.com/questions/783279/46-ui-how-to-detect-mouse-over-on-button.html
 
+
+#### All above links were used to create my base and I added onto it afterwards.
+
 #### We used these previous assignments: 
 
 - Game Engine Assignment 1 (For the base project and assets)
-- Game Engine Midterm Quiz (For DLL Plugin)
-- Game Engine Lab 4 (For DLL implementation in Unity)
-- Game Engine Lab 5 (For command and observer game design pattern)
+- Game Engine Assignment 2 (For the base project)
+- Game Engine Midterm Quiz (For the base project)
+- Game Engine Lab 4 (For the base project)
+- Game Engine Lab 5 (For the base project)
+- Game Engine Lab 7 (For adding Dirty Flag)
