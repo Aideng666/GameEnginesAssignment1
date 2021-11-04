@@ -68,14 +68,4 @@ public class GameManager : MonoBehaviour
             tutorialCompleted = true;
         }
     }
-
-    public void PlayAgain()
-    {
-        SceneManager.LoadScene("Loaded Level");
-    }
-
-    public void LoadLevelCreator()
-    {
-        SceneManager.LoadScene("LevelCreator");
-    }
 }

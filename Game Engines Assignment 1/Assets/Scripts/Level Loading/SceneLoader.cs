@@ -15,4 +15,14 @@ public class SceneLoader : MonoBehaviour
 
         SceneManager.LoadScene("Loaded Level");
     }
+
+    public void LoadLevelCreator()
+    {
+        SceneManager.LoadScene("LevelCreator");
+    }
+
+    public void LoadExampleLevel()
+    {
+        SceneManager.LoadScene("ExampleLevel");
+    }
 }
