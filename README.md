@@ -11,7 +11,7 @@ can load into the level to play it yourself! Simply click the Save Level button 
 After completing your own level you will have an option to play again or to create another new level.
 
 ### SCREENSHOTS:
-
+![](images/screenshot.png)
 
 ### UML: Factory Design Pattern
 ![](https://github.com/Aideng666/GameEnginesAssignment1/blob/Assignment2/images/A2%20UML.png)
