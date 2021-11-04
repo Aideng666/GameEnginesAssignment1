@@ -25,4 +25,9 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.LoadScene("ExampleLevel");
     }
+
+    public void PlayAgain()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 }

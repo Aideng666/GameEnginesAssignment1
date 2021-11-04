@@ -15,7 +15,6 @@ public class CommandInvoker : MonoBehaviour
     private bool dirty_;
 
     private bool isLevelSaved;
-
     private void Awake()
     {
         platformCommandBuffer = new Queue<Platform>();
