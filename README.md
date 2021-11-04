@@ -14,7 +14,7 @@ After completing your own level you will have an option to play again or to crea
 ![](images/SS.png)
 
 ### UML: Factory Design Pattern
-![](https://github.com/Aideng666/GameEnginesAssignment1/blob/Assignment2/images/UML.png)
+![](images/UML.png)
 
 ### Demo Video Link: 
 
