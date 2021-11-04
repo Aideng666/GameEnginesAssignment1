@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
             hasJumped = true;
         }
 
-        if (hasJumped && FindObjectOfType<PlayerMovement>().gameObject.transform.position.y > 5)
+        if (hasJumped && FindObjectOfType<PlayerMovement>().gameObject.transform.position.y > 10)
         {
             tutorialCompleted = true;
         }
