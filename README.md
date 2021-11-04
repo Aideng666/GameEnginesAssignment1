@@ -13,7 +13,7 @@ After completing your own level you will have an option to play again or to crea
 ### SCREENSHOTS:
 ![](images/SS.png)
 
-### UML: Factory Design Pattern
+### UML: Factory Design Pattern with Added Dirty Flag Optimization
 ![](images/UML.png)
 
 ### Demo Video Link: 
