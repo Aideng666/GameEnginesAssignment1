@@ -6,16 +6,18 @@ public class PlacePlatformCommand : ICommand
 {
     Vector3 position;
     Transform platform;
+    Transform parent;
 
-    public PlacePlatformCommand(Vector3 position, Transform platform)
+    public PlacePlatformCommand(Vector3 position, Transform platform, Transform parent)
     {
         this.position = position;
         this.platform = platform;
+        this.parent = parent;
     }
 
     public void Execute()
     {
-        PlatformPlacer.PlacePlatform(position, platform);
+        PlatformPlacer.PlacePlatform(position, platform, parent);
     }
 
     public void Undo()

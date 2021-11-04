@@ -1,18 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class CommandInvoker : MonoBehaviour
 {
+    public static event Action clicked;
+
     static Queue<Platform> platformCommandBuffer;
 
     static List<Platform> platformHistory;
     static int counter;
 
+    private bool dirty_;
+
+    private bool isLevelSaved;
+
     private void Awake()
     {
         platformCommandBuffer = new Queue<Platform>();
         platformHistory = new List<Platform>();
+
+        dirty_ = false;
     }
 
     public static void AddCommand(Platform command)
@@ -35,27 +44,32 @@ public class CommandInvoker : MonoBehaviour
 
             platformHistory.Add(c);
             counter++;
-            //Debug.Log("Platform history length: " + platformHistory.Count);
         }
-        //else
-        //{
-        //    if (Input.GetKeyDown(KeyCode.Z))
-        //    {
-        //        if (counter > 0)
-        //        {
-        //            counter--;
-        //            platformHistory[counter].Undo();
-        //        }
-        //    }
-        //    else if (Input.GetKeyDown(KeyCode.R))
-        //    {
-        //        if (counter < platformHistory.Count)
-        //        {
-        //            platformHistory[counter].Spawn();
-        //            counter++;
-        //        }
-        //    }
-        //}
+
+        if (dirty_)
+        {
+            List<string> lines = new List<string>();
+
+            foreach (Platform c in platformHistory)
+            {
+                lines.Add(c.ToString());
+            }
+
+            System.IO.File.WriteAllLines(Application.dataPath + "/levelsave.txt", lines);
+
+            print("Save Complete: File Path is Assets/levelsave.txt");
+
+            isLevelSaved = true;
+
+            dirty_ = false;
+        }
+    }
+
+    public void SetDirty()
+    {
+        dirty_ = true;
+
+        print("Saving...");
     }
 
     private void OnEnable()
@@ -70,6 +84,7 @@ public class CommandInvoker : MonoBehaviour
         {
             counter--;
             platformHistory[counter].Undo();
+            clicked?.Invoke();
         }
     }
 
@@ -79,7 +94,8 @@ public class CommandInvoker : MonoBehaviour
         {
             platformHistory[counter].Spawn();
             counter++;
-        }
+            clicked?.Invoke();
+        } 
     }
 
     public List<Platform> GetHistory()
@@ -92,36 +108,8 @@ public class CommandInvoker : MonoBehaviour
         platformHistory = newHistory;
     }
 
-
-    //public void UndoCommand()
-    //{
-    //    if (counter > 0)
-    //    {
-    //        if (Input.GetKeyDown(KeyCode.Z))
-    //        {
-    //            if (counter > 0)
-    //            {
-    //                counter--;
-    //                platformHistory[counter].Undo();
-    //            }
-    //        }
-    //        else if (Input.GetKeyDown(KeyCode.R))
-    //        {
-    //            if (counter < platformHistory.Count)
-    //            {
-    //                platformHistory[counter].Spawn();
-    //                counter++;
-    //            }
-    //        }
-    //    }
-    //}
-
-    //public void RedoCommand()
-    //{
-    //    if (counter < commandHistory.Count)
-    //    {
-    //        commandHistory[counter].Execute();
-    //        counter++;
-    //    }
-    //}
+    public bool GetLevelSaved()
+    {
+        return isLevelSaved;
+    }
 }
