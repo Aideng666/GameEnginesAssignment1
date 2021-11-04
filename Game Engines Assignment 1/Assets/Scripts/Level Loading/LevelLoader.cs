@@ -6,16 +6,21 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour
 {
-    [SerializeField] Transform platformPrefab;
+    [SerializeField] List<Transform> platformPrefabs;
     [SerializeField] Transform grassPrefab;
+    [SerializeField] Transform platformParent;
 
     List<Platform> platforms;
     StreamReader reader;
     string data;
 
+    PlatformFactory factory;
+
     void Start()
     {
         LoadData();
+        platforms = new List<Platform>();
+        factory = new PlatformFactory();
     }
 
     public void LoadData()
@@ -34,9 +39,7 @@ public class LevelLoader : MonoBehaviour
 
             Vector3 scale = new Vector3(float.Parse(platformData[4]), float.Parse(platformData[5]), float.Parse(platformData[6]));
 
-            Debug.Log(type + " : " + platformPosition + " : " + scale);
-
-            platforms.Add(SavePlatform(type, platformPosition, scale));
+            SavePlatform(type, platformPosition, scale);
 
             data = reader.ReadLine();
         }
@@ -44,71 +47,49 @@ public class LevelLoader : MonoBehaviour
         //LoadLevel();
     }
 
-    Platform SavePlatform(string type, Vector3 pos, Vector3 scale)
+    void SavePlatform(string type, Vector3 pos, Vector3 scale)
     {
         if (type == "ShortPlatform")
         {
-            Platform newPlat = new ShortPlatform(pos, platformPrefab);
-
-            newPlat.Platform.localScale = scale;
-
-            return newPlat;
+            Instantiate(platformPrefabs[0], pos, Quaternion.identity);
         }
 
         if (type == "RegularPlatform")
         {
-            Platform newPlat = new RegularPlatform(pos, platformPrefab);
-
-            newPlat.Platform.localScale = scale;
-
-            return newPlat;
+            Instantiate(platformPrefabs[1], pos, Quaternion.identity);
         }
 
         if (type == "LongPlatform")
         {
-            Platform newPlat = new LongPlatform(pos, platformPrefab);
-
-            newPlat.Platform.localScale = scale;
-
-            return newPlat;
+            Instantiate(platformPrefabs[2], pos, Quaternion.identity);
         }
 
         if (type == "FinalPlatform")
         {
-            Platform newPlat = new FinalPlatform(pos, platformPrefab);
-
-            newPlat.Platform.localScale = scale;
-
-            return newPlat;
+            Instantiate(platformPrefabs[3], pos, Quaternion.identity);
         }
 
         if (type == "Grass")
         {
-            Platform newPlat = new Grass(pos, grassPrefab);
-
-            newPlat.Platform.localScale = scale;
-
-            return newPlat;
-        }
-
-        return null;
-    }
-
-    void LoadLevel()
-    {
-        for (int i = 0; i < platforms.Count; i++)
-        {
-            if (platforms[i].Type == 4)
-            {
-                var grass = Instantiate(grassPrefab, platforms[i].Position, Quaternion.identity);
-                grass.localScale = platforms[i].Platform.localScale;
-            }
-            else
-            {
-                var plat = Instantiate(platformPrefab, platforms[i].Position, Quaternion.identity);
-                plat.localScale = platforms[i].Platform.localScale;
-            }
-
+            Instantiate(grassPrefab, pos, Quaternion.identity);
         }
     }
+
+    //void LoadLevel()
+    //{
+    //    for (int i = 0; i < platforms.Count; i++)
+    //    {
+    //        if (platforms[i].Type == 4)
+    //        {
+    //            var grass = Instantiate(grassPrefab, platforms[i].Position, Quaternion.identity);
+    //            grass.localScale = platforms[i].Platform.localScale;
+    //        }
+    //        else
+    //        {
+    //            var plat = Instantiate(platformPrefab, platforms[i].Position, Quaternion.identity);
+    //            plat.localScale = platforms[i].Platform.localScale;
+    //        }
+
+    //    }
+    //}
 }

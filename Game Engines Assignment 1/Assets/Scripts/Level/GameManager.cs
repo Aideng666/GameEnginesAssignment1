@@ -23,6 +23,11 @@ public class GameManager : MonoBehaviour
 
     public void PlayAgain()
     {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("Loaded Level");
+    }
+
+    public void LoadLevelCreator()
+    {
+        SceneManager.LoadScene("LevelCreator");
     }
 }

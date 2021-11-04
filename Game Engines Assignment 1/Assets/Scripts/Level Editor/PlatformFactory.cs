@@ -22,7 +22,7 @@ public class PlatformFactory : MonoBehaviour
         }
     }
 
-    public Platform CreatePlatformType(int type, Vector3 position, Transform platform, Transform parent, bool randomized = false)
+    public Platform CreatePlatformType(int type, Vector3 position, Transform platform, Transform parent = null, bool randomized = false)
     {
         if (type == 0)
         {
@@ -33,7 +33,6 @@ public class PlatformFactory : MonoBehaviour
             {
                 newPlat.Platform.localScale = FindObjectOfType<RandomScalePlugin>().ApplyRandomScale(newPlat.Platform.localScale);
             }
-
 
             return newPlat;
         }
