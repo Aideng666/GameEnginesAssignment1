@@ -10,17 +10,12 @@ public class LevelLoader : MonoBehaviour
     [SerializeField] Transform grassPrefab;
     [SerializeField] Transform platformParent;
 
-    List<Platform> platforms;
     StreamReader reader;
     string data;
-
-    PlatformFactory factory;
 
     void Start()
     {
         LoadData();
-        platforms = new List<Platform>();
-        factory = new PlatformFactory();
     }
 
     public void LoadData()
@@ -39,15 +34,13 @@ public class LevelLoader : MonoBehaviour
 
             Vector3 scale = new Vector3(float.Parse(platformData[4]), float.Parse(platformData[5]), float.Parse(platformData[6]));
 
-            SavePlatform(type, platformPosition, scale);
+            SpawnPlatform(type, platformPosition, scale);
 
             data = reader.ReadLine();
         }
-
-        //LoadLevel();
     }
 
-    void SavePlatform(string type, Vector3 pos, Vector3 scale)
+    void SpawnPlatform(string type, Vector3 pos, Vector3 scale)
     {
         if (type == "ShortPlatform")
         {
@@ -74,22 +67,4 @@ public class LevelLoader : MonoBehaviour
             Instantiate(grassPrefab, pos, Quaternion.identity);
         }
     }
-
-    //void LoadLevel()
-    //{
-    //    for (int i = 0; i < platforms.Count; i++)
-    //    {
-    //        if (platforms[i].Type == 4)
-    //        {
-    //            var grass = Instantiate(grassPrefab, platforms[i].Position, Quaternion.identity);
-    //            grass.localScale = platforms[i].Platform.localScale;
-    //        }
-    //        else
-    //        {
-    //            var plat = Instantiate(platformPrefab, platforms[i].Position, Quaternion.identity);
-    //            plat.localScale = platforms[i].Platform.localScale;
-    //        }
-
-    //    }
-    //}
 }
